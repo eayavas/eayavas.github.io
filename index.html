@@ -1,165 +1,211 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <title>E. A. Yavas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E. A. Yavas</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #0000EE;
+            --visited-color: #551A8B;
+            --accent-color: #cccccc;
+            --font-stack: monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack); 
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h2, h3 { margin-bottom: 5px; }
+        
+        a { color: var(--link-color); text-decoration: none; border-bottom: 1px solid transparent;}
+        a:visited { color: var(--visited-color); }
+        a:hover { text-decoration: underline; }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #000;
+            margin: 20px 0;
+        }
+        
+        hr.light { border-top: 1px solid var(--accent-color); }
+
+        header { text-align: center; margin-bottom: 20px; }
+        .nav-links { margin-top: 10px; }
+
+        .content-block {
+            margin-left: 20px;
+        }
+        
+        p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
+
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: 140px 1fr; 
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .grid-label { font-weight: bold; }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-list {
+                grid-template-columns: 1fr;
+                gap: 5px;
+                margin-bottom: 20px;
+            }
+            .content-block { margin-left: 5px; } 
+        }
+    </style>
 </head>
+<body>
 
-<body bgcolor="#ffffff" text="#111111" link="#0000EE" vlink="#551A8B" alink="#FF0000">
-
-<center>
-
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td>
-
-    <tt> <center>
-        <br>
+<main>
+    <header>
         <h2>EFE ARDA YAVAŞ</h2>
+        <strong>Computer Engineering Student</strong>
         
-        <b>Computer Engineering Student</b>
-        <br><br>
+        <div class="nav-links">
+            [ <a href="https://linksta.cc/@eayavas">Contact</a> ] &nbsp; 
+            [ <a href="mailto:eardayavas@gmail.com">Email</a> ] &nbsp; 
+            [ <a href="setup.html">Setup</a> ]
+        </div>
         
-        [ <a href="https://linksta.cc/@eayavas">Contact</a> ] &nbsp; 
-        [ <a href="mailto:eardayavas@gmail.com">eardayavas@gmail.com</a> ]
-        &nbsp; [ <a href="setup.html">Setup</a> ]
-        <br><br>
-        
-        Eskişehir, Türkiye
-    </center>
-
-    <br>
-    <hr noshade size="1" color="#000000">
-    <br>
-
-    <font size="+1"><b># About Me</b></font>
-    <br><br>
-    <ul>
-        <p style="margin-top:0px; margin-bottom:10px;">
-        &emsp;I have been working in computer technologies for over a decade, with a focus on operating systems, embedded software development, and information security. Beyond my professional work, I am a dedicated advocate of free and open-source software.
-        </p>
-        <p style="margin-top:0px; margin-bottom:10px;">
-        &emsp;Linux has been my platform of choice since I first became interested in computers. While it remains the primary environment for my operating systems work, I aim to focus my future research and development specifically on ARM architecture and IoT systems.
-        </p>
-        <p style="margin-top:0px; margin-bottom:0px;">
-        &emsp;I am deeply engaged with Hackerspace culture, particularly regarding privacy, digital rights, and freedoms. To support these concepts with a strong technical foundation, I am currently focused on advancing my expertise in various domains of computer security.
-        </p>
-    </ul>
-
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
-
-    <font size="+1"><b># Education</b></font>
-    <br><br>
-    <ul>
-        <li>
-            <b>B.Sc. in Computer Engineering</b>
-            <br>
-            Eskişehir Osmangazi University
-            <br>
-            <i>2022 - Present</i>
-            <br>
-            <font size="-1">Focus: System Programming, Embedded Systems, Computer Networks, Security
-            </font>
-        </li>
-    </ul>
-
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
-
-    <font size="+1"><b># Project Experience</b></font>
-    <br><br>
-    <ul>
-        <li>
-            <b>Günaltay Rocket Team (Teknofest 2025)</b>
-            <br>
-            Joined the avionics team for the High Altitude Rocket category. Contributed to ground control station (GCS) communications and real-time 3D visualization of the rocket's trajectory.
-            <br>
-            <i>Techs: C++, Qt, OpenGL, LoRA/RF Modules, Serial Com, Telemetry</i>
-        </li>
         <br>
-        <li>
-            <b>Ripples UAV Team (Teknofest 2024)</b>
+        <div>Eskişehir, Türkiye</div>
+    </header>
+
+    <hr>
+
+    <span class="section-title"># About Me</span>
+    <div class="content-block">
+        <p>&emsp;I have been working in computer technologies for over a decade, with a focus on operating systems, embedded software development, and information security. Beyond my professional work, I am a dedicated advocate of free and open-source software.</p>
+        <p>&emsp;Linux has been my platform of choice since I first became interested in computers. While it remains the primary environment for my operating systems work, I aim to focus my future research and development specifically on ARM architecture and IoT systems.</p>
+        <p>&emsp;I am deeply engaged with Hackerspace culture, particularly regarding privacy, digital rights, and freedoms. To support these concepts with a strong technical foundation, I am currently focused on advancing my expertise in various domains of computer security.</p>
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># Education</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>B.Sc. in Computer Engineering</strong><br>
+                Eskişehir Osmangazi University<br>
+                <i>2022 - Present</i><br>
+                <small>Focus: System Programming, Embedded Systems, Computer Networks, Security</small>
+            </li>
+        </ul>
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># Project Experience</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>Günaltay Rocket Team (Teknofest 2025)</strong><br>
+                Joined the avionics team for the High Altitude Rocket category. Contributed to ground control station (GCS) communications and real-time 3D visualization of the rocket's trajectory.<br>
+                <i>Techs: C++, Qt, OpenGL, LoRA/RF Modules, Serial Com, Telemetry</i>
+            </li>
             <br>
-            Co-founded the team and worked on avionics. Developed GCS modules and image processing components. Gained significant theoretical expertise on UAV dynamics through comprehensive research.
-            <br>
-            <i>Techs: C/C++, Linux, OpenCV, IoT Protocols, RF Systems</i>
-        </li>
-    </ul>
+            <li>
+                <strong>Ripples UAV Team (Teknofest 2024)</strong><br>
+                Co-founded the team and worked on avionics. Developed GCS modules and image processing components. Gained significant theoretical expertise on UAV dynamics through comprehensive research.<br>
+                <i>Techs: C/C++, Linux, OpenCV, IoT Protocols, RF Systems</i>
+            </li>
+        </ul>
+    </div>
 
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
+    <hr class="light">
 
-    <font size="+1"><b># Skills & Competencies</b></font>
-    <br><br>
-    
-    <ul>
-    <table border="0" cellpadding="5">
-        <tr>
-            <td valign="top" width="130"><b>Programming:</b></td>
-            <td>C, C++, Go, Python, Bash, Lua</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Languages:</b></td>
-            <td>Turkish (Native), English (Advanced)</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Platforms:</b></td>
-            <td>Linux (Main), ESP32, ARM64 (Jetson/RPi)</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Network & IoT:</b></td>
-            <td>LoRA, RF Communication, TCP/IP Basics, Socket Programming</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Tools:</b></td>
-            <td>Neovim, Git, Docker, Make/CMake</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Professional:</b></td>
-            <td>Teamwork & Leadership (Teknofest Exp.), Analytical Thinking,<br>Technical Research, Community Building</td>
-        </tr>
-    </table>
-    </ul>
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
+    <span class="section-title"># Skills & Competencies</span>
+    <div class="content-block">
+        
+        <div class="grid-list">
+            <div class="grid-label">Programming:</div>
+            <div>C, C++, Go, Python, Bash, Lua</div>
+        </div>
+        
+        <div class="grid-list">
+            <div class="grid-label">Languages:</div>
+            <div>Turkish (Native), English (Advanced)</div>
+        </div>
 
-    <font size="+1"><b># Interests</b></font>
-    <br><br>
-    
-    <ul>
-    <table border="0" cellpadding="5">
-        <tr>
-            <td valign="top" width="145"><b>Creative Tech:</b></td>
-            <td>DSP, Audio Programming, Custom Image Processing Tools,<br>Algorithmic Art & Generative Visuals</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Hardware & Photo:</b></td>
-            <td>Analog Electronics, RF Systems, Camera Hardware Modding,<br>Experimental Photography</td>
-        </tr>
-    </table>
-    </ul>
-    <br><br>
-    <hr noshade size="1" color="#000000">
-    
-    <center>
-        <br>
-        <font size="-1" color="#666666">
-            EOF (End of File) <br>
-            Last Update: November 29, 2025
-        </font>
-    </center>
-    <br>
-    
-    </tt> 
-</td>
-</tr>
-</table>
+        <div class="grid-list">
+            <div class="grid-label">Platforms:</div>
+            <div>Linux (Main), ESP32, ARM64 (Jetson/RPi)</div>
+        </div>
 
-</center>
+        <div class="grid-list">
+            <div class="grid-label">Network & IoT:</div>
+            <div>LoRA, RF Communication, TCP/IP Basics, Socket Programming</div>
+        </div>
+
+        <div class="grid-list">
+            <div class="grid-label">Tools:</div>
+            <div>Neovim, Git, Docker, Make/CMake</div>
+        </div>
+
+        <div class="grid-list">
+            <div class="grid-label">Professional:</div>
+            <div>Teamwork & Leadership (Teknofest Exp.), Analytical Thinking, Technical Research, Community Building</div>
+        </div>
+
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># Interests</span>
+    <div class="content-block">
+        <div class="grid-list">
+            <div class="grid-label">Creative Tech:</div>
+            <div>DSP, Audio Programming, Custom Image Processing Tools, Algorithmic Art & Generative Visuals</div>
+        </div>
+        
+        <div class="grid-list">
+            <div class="grid-label">Hardware & Photo:</div>
+            <div>Analog Electronics, RF Systems, Camera Hardware Modding, Experimental Photography</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        EOF (End of File) <br>
+        Last Update: November 29, 2025
+    </footer>
+
+</main>
+
 </body>
 </html>

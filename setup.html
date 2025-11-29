@@ -1,129 +1,166 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <title>Efe Arda Yavas - Setup</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efe Arda Yavas - Setup</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #0000EE;
+            --visited-color: #551A8B;
+            --accent-color: #cccccc;
+            --font-stack: monospace;
+        }
 
-<body bgcolor="#ffffff" text="#111111" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
 
-<center>
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td>
-
-    <tt>
-
-    <center>
-        <br>
-        <h3>EFE ARDA YAVAŞ / SETUP</h3>
+        h2, h3 { margin-bottom: 5px; }
         
-        [ <a href="index.html">Return to main page</a> ] &nbsp; 
-        <br><br>
-    </center>
+        a { color: var(--link-color); text-decoration: none; border-bottom: 1px solid transparent;}
+        a:visited { color: var(--visited-color); }
+        a:hover { text-decoration: underline; }
 
-    <br>
-    <hr noshade size="1" color="#000000">
-    <br>
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-    <p>
-    &emsp;I believe that a researcher's environment reflects their thinking process. I prefer minimalist, keyboard-centric workflows that allow me to touch the system's core. Here is a detailed look at my hardware and software stack.
-    </p>
+        hr { border: 0; border-top: 1px solid #000; margin: 20px 0; }
+        hr.light { border-top: 1px solid var(--accent-color); }
 
-    <br>
-    
-    <font size="+1"><b># Workstations & Architecture</b></font>
-    <br><br>
-    <ul>
-        <li>
-            <b>Daily Driver: MacOS (ARM64)</b>
-            <br>
-            Used for portable work, battery efficiency, and Unix-based stability.
-        </li>
-        <br>
-        <li>
-            <b>Deep Work: Arch Linux (x86_64)</b>
-            <br>
-            My main development rig. Customized for total control.
-            <br>
-            <i>WM: Sway (Wayland Tiling WM) - for distraction-free working.</i>
-        </li>
-        <br>
-        <li>
-            <b>Experimental: PowerPC & RISC</b>
-            <br>
-            I enjoy experimenting with older or alternative architectures like PowerPC to understand low-level differences in instruction sets and memory management.
-        </li>
-    </ul>
+        header { text-align: center; margin-bottom: 20px; }
 
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
+        .content-block { margin-left: 20px; }
+        p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
 
-    <font size="+1"><b># Development Environment (The Editor)</b></font>
-    <br><br>
-    <ul>
-        <li>
-            <b>Editor: Neovim</b>
-            <br>
-            I use a heavily modified Neovim configuration written in Lua. It is designed to be lightning-fast and entirely keyboard-driven. Also VSCode is used for specific tasks.
-            <br>
-        </li>
-        <br>
-        <li>
-            <b>Shell & Terminal</b>
-            <br>
-            Preferred Terminal app is Ghostty. Zsh / Bash with custom scripts for automation. I prefer clean prompts and minimal latency.
-        </li>
-    </ul>
+        ul { padding-left: 20px; margin-top: 0; }
+        li { margin-bottom: 10px; }
 
-    <br>
-    <hr noshade size="1" color="#cccccc">
-    <br>
+        .grid-list {
+            display: grid;
+            grid-template-columns: 160px 1fr; 
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .grid-label { font-weight: bold; }
 
-    <font size="+1"><b># Home Lab & Servers</b></font>
-    <br><br>
-    
-    <ul>
-    <table border="0" cellpadding="5">
-        <tr>
-            <td valign="top" width="150"><b>Raspberry Pi 5 (8GB):</b></td>
-            <td>Dedicated to ARM64 native compilation and embedded Linux tests.</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Home Servers:</b></td>
-            <td>
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .grid-list { grid-template-columns: 1fr; gap: 5px; margin-bottom: 20px; }
+            .content-block { margin-left: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <h3>EFE ARDA YAVAŞ / SETUP</h3>
+        [ <a href="index.html">Return to main page</a> ]
+    </header>
+
+    <hr>
+
+    <div class="content-block">
+        <p>&emsp;I believe that a developer's environment reflects their thinking process. I prefer minimalist, keyboard-centric workflows that allow me to touch the system's core. Here is a detailed look at my hardware and software stack.</p>
+    </div>
+
+    <span class="section-title"># Workstations & Architecture</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>Daily Driver: MacOS (ARM64)</strong><br>
+                Used for portable work, battery efficiency, and Unix-based stability.
+            </li>
+            
+            <li>
+                <strong>Deep Work: Arch Linux (x86_64)</strong><br>
+                My main development rig. Customized for total control.<br>
+                <i>WM: Sway (Wayland Tiling WM) - for distraction-free working.</i>
+            </li>
+            
+            <li>
+                <strong>Experimental: PowerPC & RISC</strong><br>
+                I enjoy experimenting with older or alternative architectures like PowerPC to understand low-level differences in instruction sets and memory management.
+            </li>
+        </ul>
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># Development Environment (The Editor)</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>Editor: Neovim</strong><br>
+                I use a heavily modified Neovim configuration written in Lua. It is designed to be lightning-fast and entirely keyboard-driven. Also VSCode is used for specific tasks.
+            </li>
+            
+            <li>
+                <strong>Shell & Terminal</strong><br>
+                Preferred Terminal app is Ghostty. Zsh / Bash with custom scripts for automation. I prefer clean prompts and minimal latency.
+            </li>
+        </ul>
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># Home Lab & Servers</span>
+    <div class="content-block">
+        
+        <div class="grid-list">
+            <div class="grid-label">Raspberry Pi 5 (8GB):</div>
+            <div>Dedicated to ARM64 native compilation and embedded Linux tests.</div>
+        </div>
+
+        <div class="grid-list">
+            <div class="grid-label">Home Servers:</div>
+            <div>
                 Running various distros to simulate different environments:
-                <br>
-                - <b>Alpine Linux:</b> For containerization & minimalism.
-                <br>
-                - <b>Debian/Fedora:</b> For stability and package management tests.
-            </td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Networking:</b></td>
-            <td>Managing local DNS, SSH tunneling, and secure remote access.</td>
-        </tr>
-    </table>
-    </ul>
-    <br><br>
-    <hr noshade size="1" color="#000000">
-    
-    <center>
-        <br>
-        <font size="-1" color="#666666">
-            "Tools shape the hand, the hand shapes the tool."
-        </font>
-    </center>
-    <br>
+                <br>- <b>Alpine Linux:</b> For containerization & minimalism.
+                <br>- <b>Debian/Fedora:</b> For stability and package management tests.
+            </div>
+        </div>
 
-    </tt>
+        <div class="grid-list">
+            <div class="grid-label">Networking:</div>
+            <div>Managing local DNS, SSH tunneling, and secure remote access.</div>
+        </div>
 
-</td>
-</tr>
-</table>
+    </div>
 
-</center>
+    <hr>
+
+    <footer>
+        "Tools shape the hand, the hand shapes the tool."
+    </footer>
+
+</main>
+
 </body>
 </html>
