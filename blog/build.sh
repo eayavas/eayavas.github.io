@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Ayarlar
 TEMPLATE_POST="templates/post.html"
 TEMPLATE_INDEX="templates/index.html"
 CONTENT_DIR="content"
@@ -31,24 +30,20 @@ for file in "$CONTENT_DIR"/*.md; do
         --highlight-style=tango \
         -o "$OUTPUT_DIR/$slug.html"
 
-    # Veriyi kaydet
     echo "$date|$lang|$title|$slug.html" >> "$TEMP_INDEX_DATA"
 done
 
-# 2. Index Oluşturma (Senin Grid Yapına Göre)
 echo "Generating index..."
 sorted_posts=$(sort -r "$TEMP_INDEX_DATA")
 posts_html=""
 
 while IFS='|' read -r date lang title url; do
-    # Senin .grid-list yapını kullanıyoruz:
-    # Sol kolon: Tarih ve Dil
-    # Sağ kolon: Link
+    # DİKKAT: MacOS uyumluluğu için satır sonuna \n KOYMUYORUZ.
     item="<div class='grid-list'><div class='grid-label'>$date [$lang]</div><div><a href='$url'>$title</a></div></div>"
-    posts_html+="$item\n"
+    posts_html+="$item"
 done <<< "$sorted_posts"
 
 sed "s|\$post_list\$|$posts_html|g" "$TEMPLATE_INDEX" > "$OUTPUT_DIR/index.html"
-rm "$TEMP_INDEX_DATA"
 
+rm "$TEMP_INDEX_DATA"
 echo "Done."
