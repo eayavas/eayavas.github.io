@@ -40,7 +40,13 @@ hr { border: 0; border-top: 1px solid #000; margin: 20px 0; }
 hr.light { border-top: 1px solid var(--accent-color); }
 
 header { text-align: center; margin-bottom: 20px; }
-.nav-links { margin-top: 10px; }
+
+.nav-links .nav-item {
+    white-space: nowrap;
+    display: inline-block;
+    margin: 0 5px;
+    margin-top: 10px;
+}
 
 .content-block { margin-left: 20px; }
 p { margin-top: 0; margin-bottom: 10px; text-align: justify; }
