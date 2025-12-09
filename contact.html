@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .link-container {
-            margin-top: 30px;
-            max-width: 500px; /* Mobilde çok yayılmasın */
+            margin: 30px auto;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: stretch;
+            padding: 0 8px;
         }
 
         .link-block {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 8px 12px;
             border: 1px solid var(--text-color);
-            margin-bottom: 15px;
+            margin: 0;
             color: var(--text-color);
             text-decoration: none;
             font-family: var(--font-stack);
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border-radius: 0;
+            transition: all 0.15s ease;
         }
 
         .link-block:hover {
@@ -29,11 +36,12 @@
             color: var(--bg-color);
             text-decoration: none;
             cursor: pointer;
+            transform: translateY(-1px);
         }
 
-        .link-label { font-weight: bold; }
-        .link-desc { font-size: 0.85em; opacity: 0.8; }
-        .arrow { font-family: monospace; }
+        .link-label { font-weight: 600; }
+        .link-desc { font-size: 0.8em; opacity: 0.8; }
+        .arrow { font-family: monospace; font-size: 0.95rem; }
 
         .pgp-block {
             background-color: #f4f4f4;
@@ -77,6 +85,22 @@
             <div class="arrow">-></div>
         </a>
 
+        <a href="https://t.me/eayavas" target="_blank" class="link-block">
+            <div>
+                <div class="link-label">TELEGRAM</div>
+                <div class="link-desc">@eayavas</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
+        <a href="https://mstdn.social/@eayavas" target="_blank" class="link-block">
+            <div>
+                <div class="link-label">MASTODON</div>
+                <div class="link-desc">@eayavas (Fediverse)</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
         <a href="https://linkedin.com/in/efe-arda-yavas" target="_blank" class="link-block">
             <div>
                 <div class="link-label">LINKEDIN</div>
@@ -104,7 +128,7 @@
         <div class="grid-list">
             <div class="grid-label">Fingerprint:</div>
             <div style="font-family: monospace; word-break: break-all;">
-                XXXX XXXX XXXX XXXX (Buraya kendi fingerprintini yaz)
+                XXXX XXXX XXXX XXXX
             </div>
         </div>
 
