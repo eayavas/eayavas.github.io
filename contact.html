@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efe Arda Yavaş - Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .link-container {
+            margin-top: 30px;
+            max-width: 500px; /* Mobilde çok yayılmasın */
+        }
+
+        .link-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border: 1px solid var(--text-color);
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-stack);
+            transition: all 0.2s ease;
+        }
+
+        .link-block:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .link-label { font-weight: bold; }
+        .link-desc { font-size: 0.85em; opacity: 0.8; }
+        .arrow { font-family: monospace; }
+
+        .pgp-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            font-size: 0.8rem;
+            border: 1px dashed #999;
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <h3>EFE ARDA YAVAŞ / CONTACT</h3>
+        [ <a href="index.html">Return to main page</a> ]
+    </header>
+
+    <hr>
+
+    <div class="content-block">
+        <p>&emsp;I prefer asynchronous communication. Email is the most reliable way to reach me. For encrypted comms, please use my PGP key found below.</p>
+    </div>
+
+    <div class="content-block link-container">
+        
+        <a href="mailto:eardayavas@gmail.com" class="link-block">
+            <div>
+                <div class="link-label">EMAIL</div>
+                <div class="link-desc">eardayavas@gmail.com</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
+        <a href="https://github.com/eayavas" target="_blank" class="link-block">
+            <div>
+                <div class="link-label">GITHUB</div>
+                <div class="link-desc">/eayavas (Open Source Projects)</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
+        <a href="https://linkedin.com/in/efe-arda-yavas" target="_blank" class="link-block">
+            <div>
+                <div class="link-label">LINKEDIN</div>
+                <div class="link-desc">Professional Network</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
+        <a href="/blog" class="link-block">
+            <div>
+                <div class="link-label">READ MY BLOG</div>
+                <div class="link-desc">Technical Notes & Essays</div>
+            </div>
+            <div class="arrow">-></div>
+        </a>
+
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># PGP Public Key</span>
+    <div class="content-block">
+        <p>If you are sending sensitive information, verify my fingerprint.</p>
+        
+        <div class="grid-list">
+            <div class="grid-label">Fingerprint:</div>
+            <div style="font-family: monospace; word-break: break-all;">
+                XXXX XXXX XXXX XXXX (Buraya kendi fingerprintini yaz)
+            </div>
+        </div>
+
+        <pre class="pgp-block">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+(Buraya PGP Key'ini kısaltılmış olarak koyabilir 
+veya tam dosya için bir link verebilirsin)
+-----END PGP PUBLIC KEY BLOCK-----
+        </pre>
+        
+        <p style="font-size: 0.85em; margin-top: 10px;">
+            [ <a href="#">Download full public key (.asc)</a> ]
+        </p>
+    </div>
+
+    <hr>
+
+    <footer>
+        NO DATA COLLECTION. NO TRACKING. <br>
+        Hosted on GitHub Pages.
+    </footer>
+
+</main>
+
+</body>
+</html>
