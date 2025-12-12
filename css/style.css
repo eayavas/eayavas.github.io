@@ -63,13 +63,15 @@ li { margin-bottom: 10px; }
 }
 .grid-label { font-weight: bold; }
 
+figure {
+    max-width: 100%;
+    text-align: center;
+}
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 10px auto;
-    border: 1px solid #ccc;
 }
 
 em {
