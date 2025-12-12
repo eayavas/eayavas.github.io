@@ -25,16 +25,125 @@
         <h2 id="how-this-blog-works">How This Blog Works</h2>
         <p>When I decided to add a blog section to my website, I needed
         a method that would preserve the minimalist structure of my main
-        ‘CV’ pages and keep the overall architecture simple.</p>
-        <p>I could, of course, have manually created separate HTML files
-        for each post. However, this approach was cumbersome for content
-        creation and lacked flexibility; changing a single design
-        element across all posts would require revising every page
+        pages and keep the general architecture simple. Of course, I
+        could have manually created separate HTML files for each post.
+        However, this approach was burdensome in terms of content
+        creation, lacked flexibility, and changing a single common
+        element across all posts would require editing every page
         individually.</p>
         <p>After researching practical methods for static sites, I
-        decided against using heavy, pre-existing static site generators
-        (like Jekyll or Hugo). Instead, I opted to solve this using a
-        <strong>custom, lightweight script and Markdown</strong>.</p>
+        didn’t want to use heavy and unnecessary static site generators
+        like Jekyll or Hugo. Instead, as shown in the diagram below, I
+        preferred to write a <a href="/blog/build.sh">Bash script</a>
+        that automatically converts Markdown blog posts into HTML pages
+        and adds them to the web directory and blog index.</p>
+        <figure>
+        <img src="assets/buildShFlow.jpg" alt="Script Scheme" />
+        <figcaption aria-hidden="true">Script Scheme</figcaption>
+        </figure>
+        <p>To make this script work, I structured my webpage’s directory
+        as follows:</p>
+        <pre><code>root
+├── blog
+│   ├── assets
+│   │   └── buıldShFlow.jpg
+│   ├── build.sh
+│   ├── content
+│   │   └── en-how-this-blog-works.md
+│   └── templates
+│       ├── index.html
+│       └── post.html
+├── CNAME
+├── contact.html
+├── css
+│   └── style.css
+├── index.html
+├── public
+│   └── blog
+│       ├── en-how-this-blog-works.html
+│       └── index.html
+└── setup.html</code></pre>
+        <p>Briefly, the script first parses the section containing the
+        name, date, and language information found in the first lines of
+        the Markdown file. (Since the <strong>sed</strong> command,
+        which I use very frequently on Linux, did not work as expected
+        on macOS, I had to perform this parsing process using a more
+        traditional method with <strong>grep</strong> so that it could
+        work on both macOS and Linux.) Afterward, I use the
+        <strong>pandoc</strong> tool to generate an HTML file from the
+        Markdown content based on the file information parsed earlier
+        and the template files I created beforehand, which define the
+        general structure of the blog page. This way, the file in
+        Markdown format is converted to HTML format under the public
+        directory and published.</p>
+        <pre><code>files=(&quot;$CONTENT_DIR&quot;/*.md)
+if [ ${#files[@]} -eq  0 ]; then
+echo  &quot;Warning: There is no .md file in &#39;content&#39; folder!&quot;
+
+else
+    for  file  in  &quot;${files[@]}&quot;; do
+        filename=$(basename  --  &quot;$file&quot;)
+        slug=&quot;${filename%.*}&quot;
+   
+        title=$(grep  &quot;^title:&quot;  &quot;$file&quot;  |  sed  &#39;s/title: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        date=$(grep  &quot;^date:&quot;  &quot;$file&quot;  |  sed  &#39;s/date: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        lang=$(grep  &quot;^lang:&quot;  &quot;$file&quot;  |  sed  &#39;s/lang: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        if [ -z  &quot;$lang&quot; ]; then  lang=&quot;EN&quot;; fi
+   
+        echo  &quot; -&gt; Converting: $slug&quot;
+   
+        pandoc  &quot;$file&quot;  \
+            -f  markdown  \
+            -t  html  \
+            --template=&quot;$TEMPLATE_POST&quot;  \
+            --highlight-style=tango  \
+            -o  &quot;$OUTPUT_DIR/$slug.html&quot;
+   
+        echo  &quot;$date|$lang|$title|$slug.html&quot;  &gt;&gt;  &quot;$TEMP_INDEX_DATA&quot;
+    done
+fi</code></pre>
+        <p>In the second stage, we need to add the created website to
+        the blog index list, i.e., the <code>blog/index.html</code> file
+        under the public directory. We use the HTML injection method for
+        this process. The script reads the <code>index.html</code>
+        template file I created earlier line by line and performs a
+        find-and-replace operation on areas marked with special keywords
+        within the template file.</p>
+        <pre><code>   echo &quot;Generating index page...&quot;
+
+posts_html=&quot;&quot;
+
+if [ -f &quot;$TEMP_INDEX_DATA&quot; ]; then
+    sorted_posts=$(sort -r &quot;$TEMP_INDEX_DATA&quot;)
+    
+    while IFS=&#39;|&#39; read -r date lang title url; do
+        posts_html+=&quot;&lt;div class=&#39;grid-list&#39;&gt;&lt;div class=&#39;grid-label&#39;&gt;$date [$lang]&lt;/div&gt;&lt;div&gt;&lt;a href=&#39;$url&#39;&gt;$title&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&quot;
+        posts_html+=$&#39;\n&#39; 
+    done &lt;&lt;&lt; &quot;$sorted_posts&quot;
+else
+    posts_html=&quot;&lt;p&gt;No posts found yet.&lt;/p&gt;&quot;
+fi
+
+while IFS= read -r line; do
+    if [[ &quot;$line&quot; == *&quot;\$post_list\$&quot;* ]]; then
+        echo &quot;$posts_html&quot;
+    else
+        echo &quot;$line&quot;
+    fi
+done &lt; &quot;$TEMPLATE_INDEX&quot; &gt; &quot;$OUTPUT_DIR/index.html&quot;
+
+rm -f &quot;$TEMP_INDEX_DATA&quot;
+
+echo &quot;Copying assets...&quot;
+mkdir -p &quot;$OUTPUT_DIR/assets&quot;
+cp -r assets/* &quot;$OUTPUT_DIR/assets/&quot; 2&gt;/dev/null || :
+
+echo &quot;Build complete! Check public/blog/index.html&quot;</code></pre>
+        <p>This allows us to benefit from the advantages of Markdown
+        editing. Additionally, thanks to the template files, when we
+        want to make a change that applies to all blog files, we can
+        practically update everything by re-converting all pages
+        according to the new template using the script.</p>
     </div>
 
     <hr>
