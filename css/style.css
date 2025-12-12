@@ -80,7 +80,8 @@ img {
 em {
     display: block;
     text-align: center;
-    font-size: 0.9em;
+    font-style: italic;
+    font-size: 0.8em;
     color: #666;
     margin-top: -10px;
     margin-bottom: 20px;
