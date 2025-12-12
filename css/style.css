@@ -64,7 +64,7 @@ li { margin-bottom: 10px; }
 .grid-label { font-weight: bold; }
 
 
-article img {
+img {
     max-width: 100%;
     height: auto;
     display: block;
@@ -72,7 +72,7 @@ article img {
     border: 1px solid #ccc;
 }
 
-article em {
+em {
     display: block;
     text-align: center;
     font-size: 0.9em;
