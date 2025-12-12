@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How This Blog Works - E.A. Yavas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<main>
+    <header>
+        <h3>How This Blog Works</h3>
+        <div class="nav-links">
+            [ <a href="/index.html">Home</a> ] &nbsp; 
+            [ <a href="/public/blog/index.html">Blog Index</a> ]
+        </div>
+        <br>
+        <div>2025-12-07</div>
+    </header>
+
+    <hr>
+
+    <div class="content-block">
+        <h2 id="bu-blog-nasıl-çalışıyor">Bu Blog Nasıl Çalışıyor?</h2>
+        <p>Web siteme bir blog bölümü eklemeye karar verdiğimde, ana
+        sayfalarımın minimalist yapısını koruyacak ve genel mimariyi
+        basit tutacak bir yönteme ihtiyacım vardı. Elbette, her gönderi
+        için ayrı HTML dosyaları manuel olarak oluşturabilirdim. Ancak
+        bu yaklaşım, içerik oluşturma açısından zahmetliydi ve
+        esneklikten yoksundu ve tüm gönderilerde tek bir ortak öğeyi
+        değiştirmek, her sayfayı ayrı ayrı yeniden düzenlemeyi
+        gerektirirdi.</p>
+        <p>Statik siteler için pratik yöntemler araştırdıktan sonra
+        Jekyll veya Hugo gibi ağır ve gereksiz statik site
+        oluşturucuları kullanmak istemedim. Bunun yerine, calışma
+        mantığını aşağıdaki tabloda görebileceğiz, Markdown formatında
+        yazılmış blog yazılarını otomatik olarak html sayfasına
+        çevirerek web dizinine ve blog indexine ekleyen bir <a
+        href="/blog/build.sh">Bash scripti</a> yazmayı tercih ettim.</p>
+        <figure>
+        <img src="assets/buildShFlow.jpg" alt="Script Scheme" />
+        <figcaption aria-hidden="true">Script Scheme</figcaption>
+        </figure>
+        <p>Bu scriptin çalışabilmesi için web sayfamın dizin yapısını
+        aşağıdaki gibi oluşturdum:</p>
+        <pre><code>root
+├── blog
+│   ├── assets
+│   │   └── buıldShFlow.jpg
+│   ├── build.sh
+│   ├── content
+│   │   └── en-how-this-blog-works.md
+│   └── templates
+│       ├── index.html
+│       └── post.html
+├── CNAME
+├── contact.html
+├── css
+│   └── style.css
+├── index.html
+├── public
+│   └── blog
+│       ├── en-how-this-blog-works.html
+│       └── index.html
+└── setup.html</code></pre>
+        <p>Kısaca script öncelikle Markdown dosyasının ilk satırlarında
+        yer alan ad, tarih ve dil bilgilerini içeren kısmı parse ediyor.
+        (Bu işlem için Linux da cok sık kullandığım <strong>sed</strong>
+        komutu MacOS da beklediğim gibi çalışmadığı için hem MacOS hem
+        Linux üzerinde çalışabilmesi için bu parse işlemini, daha
+        geleneksel bir yöntemle, <strong>grep</strong> ile yapmam
+        gerekti.) Sonrasında Markdown dosyasının içeriğini, blog
+        sayfasının genel yapısını gösteren, önceden oluşturmuş olduğum
+        template dosyalarına göre <strong>pandoc</strong> aracına ilk
+        parse ettiğim dosya bilgilerine göre bir HTML dosyası
+        oluşturtuyorum. Bu sayede Markdown formatındaki dosya public
+        dizini altında HTML formatına çevrilmiş ve yayınlanmış
+        oluyor.</p>
+        <pre><code>files=(&quot;$CONTENT_DIR&quot;/*.md)
+if [ ${#files[@]} -eq  0 ]; then
+echo  &quot;Warning: There is no .md file in &#39;content&#39; folder!&quot;
+
+else
+    for  file  in  &quot;${files[@]}&quot;; do
+        filename=$(basename  --  &quot;$file&quot;)
+        slug=&quot;${filename%.*}&quot;
+   
+        title=$(grep  &quot;^title:&quot;  &quot;$file&quot;  |  sed  &#39;s/title: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        date=$(grep  &quot;^date:&quot;  &quot;$file&quot;  |  sed  &#39;s/date: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        lang=$(grep  &quot;^lang:&quot;  &quot;$file&quot;  |  sed  &#39;s/lang: //g&#39;  |  tr  -d  &#39;&quot;&#39;  |  tr  -d  &#39;\r&#39;)
+        if [ -z  &quot;$lang&quot; ]; then  lang=&quot;EN&quot;; fi
+   
+        echo  &quot; -&gt; Converting: $slug&quot;
+   
+        pandoc  &quot;$file&quot;  \
+            -f  markdown  \
+            -t  html  \
+            --template=&quot;$TEMPLATE_POST&quot;  \
+            --highlight-style=tango  \
+            -o  &quot;$OUTPUT_DIR/$slug.html&quot;
+   
+        echo  &quot;$date|$lang|$title|$slug.html&quot;  &gt;&gt;  &quot;$TEMP_INDEX_DATA&quot;
+    done
+fi</code></pre>
+        <p>İkinci aşamada ise oluşturduğumuz web sitesini blog index
+        listesine yani public altındaki blog/index.html dosyasına
+        eklememiz gerekiyor. Bu işlem için html injection metodunu
+        kullanıyoruz. Script daha önceden oluşturmuş olduğum blog
+        sayfasının index.html template dosyasını satır satır okuyarak
+        template dosyası içinde özel anahtarlar kelimelerle belirtilmiş
+        alanlara, bul ve yerleştir işlemi gerçekleştiriyor.</p>
+        <pre><code>   echo &quot;Generating index page...&quot;
+
+posts_html=&quot;&quot;
+
+if [ -f &quot;$TEMP_INDEX_DATA&quot; ]; then
+    sorted_posts=$(sort -r &quot;$TEMP_INDEX_DATA&quot;)
+    
+    while IFS=&#39;|&#39; read -r date lang title url; do
+        posts_html+=&quot;&lt;div class=&#39;grid-list&#39;&gt;&lt;div class=&#39;grid-label&#39;&gt;$date [$lang]&lt;/div&gt;&lt;div&gt;&lt;a href=&#39;$url&#39;&gt;$title&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&quot;
+        posts_html+=$&#39;\n&#39; 
+    done &lt;&lt;&lt; &quot;$sorted_posts&quot;
+else
+    posts_html=&quot;&lt;p&gt;No posts found yet.&lt;/p&gt;&quot;
+fi
+
+while IFS= read -r line; do
+    if [[ &quot;$line&quot; == *&quot;\$post_list\$&quot;* ]]; then
+        echo &quot;$posts_html&quot;
+    else
+        echo &quot;$line&quot;
+    fi
+done &lt; &quot;$TEMPLATE_INDEX&quot; &gt; &quot;$OUTPUT_DIR/index.html&quot;
+
+rm -f &quot;$TEMP_INDEX_DATA&quot;
+
+echo &quot;Copying assets...&quot;
+mkdir -p &quot;$OUTPUT_DIR/assets&quot;
+cp -r assets/* &quot;$OUTPUT_DIR/assets/&quot; 2&gt;/dev/null || :
+
+echo &quot;Build complete! Check public/blog/index.html&quot;</code></pre>
+        <p>Bu sayede hem Markdown düzenlemenin avantajlarından
+        faydalanıyoruz. Hem de template dosyaları sayesinde tüm blog
+        dosyalarında geçerli olacak bir değişiklik yapmak istediğimizde
+        tüm sayfaları tekrar yeni şablona göre script ile çevirerek
+        pratik bir şekilde güncelleyebiliyoruz.</p>
+    </div>
+
+    <hr>
+
+    <footer>
+        <a href="#">Scroll to top</a>
+    </footer>
+
+</main>
+
+</body>
+</html>

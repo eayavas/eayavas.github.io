@@ -64,4 +64,8 @@ done < "$TEMPLATE_INDEX" > "$OUTPUT_DIR/index.html"
 
 rm -f "$TEMP_INDEX_DATA"
 
+echo "Copying assets..."
+mkdir -p "$OUTPUT_DIR/assets"
+cp -r assets/* "$OUTPUT_DIR/assets/" 2>/dev/null || :
+
 echo "Build complete! Check public/blog/index.html"
