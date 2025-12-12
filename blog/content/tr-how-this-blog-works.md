@@ -1,5 +1,5 @@
 ---
-title: How This Blog Works
+title: Bu Blog Nasil Çalışıyor
 date: 2025-12-07
 lang: TR
 ---
