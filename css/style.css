@@ -65,7 +65,7 @@ li { margin-bottom: 10px; }
 
 
 img {
-    max-width: 750px;
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 10px auto;
