@@ -68,8 +68,7 @@ img {
     max-width: 750px;
     height: auto;
     display: block;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    margin: 10px auto;
     border: 1px solid #ccc;
 }
 
