@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -118,8 +122,26 @@ pre {
 code { font-family: var(--font-stack); }
 
 @media (max-width: 600px) {
-    :root { --base-font-size: 16px; } /* Slightly smaller for mobile */
-    .grid-list { grid-template-columns: 1fr; gap: 5px; margin-bottom: 20px; }
-    .content-block { margin-left: 10px; }
-    main { padding: 10px; }
+    :root { 
+        /* Monospace fontlar geniş olduğu için mobilde 15px veya 14px daha idealdir */
+        --base-font-size: 15px; 
+    }
+    
+    body {
+        padding: 15px; /* Mobilde kenar boşluklarını biraz daralt ama koru */
+    }
+    
+    main { 
+        padding: 0; 
+    }
+    
+    .grid-list { 
+        grid-template-columns: 1fr; 
+        gap: 5px; 
+        margin-bottom: 20px; 
+    }
+    
+    .content-block { 
+        margin-left: 0; /* Mobilde ekstra girintiye gerek yok, ekran zaten dar */
+    }
 }
