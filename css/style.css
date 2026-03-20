@@ -104,7 +104,6 @@ footer {
     color: #666;
     margin-top: 50px;
     font-style: italic;
-    border-top: 1px solid var(--accent-color);
     padding-top: 20px;
 }
 
