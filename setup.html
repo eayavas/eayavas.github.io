@@ -17,7 +17,7 @@
     <hr>
 
     <div class="content-block">
-        <p>&emsp;I believe that a researcher's environment reflects their thinking process. I prefer minimalist, keyboard-centric workflows that allow me to touch the system's core. Here is a detailed look at my hardware and software stack.</p>
+        <p>&emsp;A researcher's environment reflects their thinking process. I prefer minimalist workflows that improves my focus ability. Here is a detailed look at my hardware and software stack.</p>
     </div>
 
     <span class="section-title"># Workstations & Architecture</span>
@@ -29,9 +29,9 @@
             </li>
             
             <li>
-                <strong>Deep Work: Arch Linux (x86_64)</strong><br>
-                My main development rig. Customized for total control.<br>
-                <i>WM: Sway (Wayland Tiling WM) - for distraction-free working.</i>
+                <strong>Second Notebook: Arch Linux (x86_64)</strong><br>
+                My main Linux development machine. Customized for total control.<br>
+                <i>DE: KDE Plasma. But I usually use it via ssh connection for distraction free working.</i>
             </li>
             
             <li>
@@ -48,12 +48,17 @@
         <ul>
             <li>
                 <strong>Editor: Neovim</strong><br>
-                I use a heavily modified Neovim configuration written in Lua. It is designed to be lightning-fast and entirely keyboard-driven. Also VSCode is used for specific tasks.
+                I use a minimally modified Neovim configuration written in Lua. It is designed to be lightning-fast and entirely keyboard-driven. I ususally open it on SSH sessions.
+            </li>
+
+            li>
+                <strong>Editor: VSCode</strong><br>
+                After a long period of resistance, I finally incorporated this tool into my workflow. With its visually simple configuration, Vim editing plugin, and Copilot, it has become an IDE for general use.
             </li>
             
             <li>
                 <strong>Shell & Terminal</strong><br>
-                Preferred Terminal app is Ghostty. Zsh / Bash with custom scripts for automation. I prefer clean prompts and minimal latency.
+                Preferred Terminal app is Ghostty. Zsh / Bash with custom scripts for automation.
             </li>
         </ul>
     </div>
@@ -62,24 +67,26 @@
 
     <span class="section-title"># Home Lab & Servers</span>
     <div class="content-block">
+
+         <li>
+                <strong>: Raspberry Pi: Debian (ARM64)</strong><br>
+               <br>
+                <i>WM: LabWC (Wayland Floating WM) light visuals for light chip..</i>
+            </li>
         
         <div class="grid-list">
+            
             <div class="grid-label">Raspberry Pi 5 (8GB):</div>
-            <div>Dedicated to ARM64 native compilation and embedded Linux tests.</div>
+            <div>Dedicated to ARM64 native compilation and embedded Linux tests however sometimes I use it as my desktop machine. (I really enjoy Kernel Panic)</div>
         </div>
 
         <div class="grid-list">
             <div class="grid-label">Home Servers:</div>
             <div>
-                Running various distros to simulate different environments:
+                Running various distros and containerization to simulate different environments:
                 <br>- <b>Alpine Linux:</b> For containerization & minimalism.
-                <br>- <b>Debian/Fedora:</b> For stability and package management tests.
+                <br>- <b>Debian:</b> For stability and package management tests.
             </div>
-        </div>
-
-        <div class="grid-list">
-            <div class="grid-label">Networking:</div>
-            <div>Managing local DNS, SSH tunneling, and secure remote access.</div>
         </div>
 
     </div>
