@@ -24,7 +24,7 @@ body {
 }
 
 main {
-    max-width: 700px; /* Wider container for larger text */
+    max-width: 800px; /* Wider container for larger text */
     margin: 0 auto;
     width: 100%;
 }
