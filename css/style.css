@@ -8,8 +8,8 @@
     --link-color: #0000EE;
     --visited-color: #551A8B;
     --accent-color: #cccccc;
-    --font-stack: monospace;
-    /* Increased base size for better readability */
+    --font-stack: "JetBrains Mono", monospace;
+;
     --base-font-size: 15px; 
 }
 
@@ -122,12 +122,11 @@ code { font-family: var(--font-stack); }
 
 @media (max-width: 600px) {
     :root { 
-        /* Monospace fontlar geniş olduğu için mobilde 15px veya 14px daha idealdir */
         --base-font-size: 15px; 
     }
     
     body {
-        padding: 15px; /* Mobilde kenar boşluklarını biraz daralt ama koru */
+        padding: 15px;
     }
     
     main { 
@@ -141,6 +140,6 @@ code { font-family: var(--font-stack); }
     }
     
     .content-block { 
-        margin-left: 0; /* Mobilde ekstra girintiye gerek yok, ekran zaten dar */
+        margin-left: 0; 
     }
 }
