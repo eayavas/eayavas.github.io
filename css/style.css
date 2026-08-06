@@ -20,11 +20,11 @@ body {
     font-size: var(--base-font-size);
     margin: 0;
     padding: 20px;
-    line-height: 1.6; /* Slightly increased for monospace clarity */
+    line-height: 1.6;
 }
 
 main {
-    max-width: 800px; /* Wider container for larger text */
+    max-width: 650px;
     margin: 0 auto;
     width: 100%;
 }
