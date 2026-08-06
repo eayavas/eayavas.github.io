@@ -124,7 +124,7 @@ code { font-family: var(--font-stack); }
 
 @media (max-width: 600px) {
     :root { 
-        --base-font-size: 15px; 
+        --base-font-size: 18px; 
     }
     
     body {
