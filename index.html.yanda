@@ -36,24 +36,15 @@
 
     <hr class="light">
 
-<span class="section-title"># who am i?</span>
+    <span class="section-title"># who am i?</span>
     <div class="content-block">
-        
-        <!-- ASCII Portre (Ortalanmış) -->
-        <div style="font-family: monospace; font-size: 16px; line-height: 1.2; white-space: pre; color: var(--text-color); text-align: center; margin-bottom: 25px;">   |\__/,|   (`\
-  _.|o o  |_   ) )
--(((---(((--------</div>
-
-        <div>
-            <p>&emsp;&emsp;I am a multidisciplinary researcher and creative technologist. While my academic roots are in computer engineering, my primary focus has shifted toward new media arts, algorithmic audiovisuals, and interactive installations.</p>
-            <p>&emsp;&emsp;I am also a dedicated advocate for free and open-source software, digital privacy, and hacker ethics. To support these principles, I prioritize decentralized platforms like the Fediverse over centralized networks and actively self-host my media and working environments. I believe that true creative expression requires a strong foundation in digital rights and privacy-respecting technologies.</p>
-        </div>
-        
+        <p>&emsp;&emsp;I am a multidisciplinary researcher and creative technologist. While my academic roots are in computer engineering, my primary focus has shifted toward new media arts, algorithmic audiovisuals, and interactive installations.</p>
+        <p>&emsp;&emsp;I am also a dedicated advocate for free and open-source software, digital privacy, and hacker ethics. To support these principles, I prioritize decentralized platforms like the Fediverse over centralized networks and actively self-host my media and working environments. I believe that true creative expression requires a strong foundation in digital rights and privacy-respecting technologies.</p>
     </div>
 
     <hr class="light">
 
-    <span class="section-title"># research & practise</span>
+     <span class="section-title"># research & practise</span>
     <div class="content-block">
         <ul>
             <li>
@@ -61,17 +52,17 @@
                     <div class="research-text">
                         <strong>Livecoding: </strong>
                         Algorithmic music performance and real-time audio synthesis.<br>
-                        <i><strong>Tools:</strong> Supercollider, FoxDot, Tidal Cycles, Strudel</i>
+                        <i><strong>Tools:</strong> Supercollider, FoxDot, TidalCycles, Strudel</i>
                     </div>
-                    <div class="research-ascii" style="font-size:10px;	">     _                 ____
-    ( )               |____|
- ___|/________|\______|____|_______
-|__/|/_)_|____|_|\__(_)__(_)_______|
-|_(_|_/__|__(_)_|\_________________|
-|___|____|____(_)__________________|
-|________|___________________(_)___|
-                               |
-                               |</div>
+                    <div class="research-ascii">     _                       ____
+    ( )                     |____|
+ ___|/________|\____________|____|_______
+|__/|/_)_|____|_______|\__(_)__(_)_______|
+|_(_|_/__|__(_)_______|\_________________|
+|___|____|__________(_)__________________|
+|________|_________________________(_)___|
+                                     |
+                                     |   </div>
                 </div>
             </li>
             
@@ -80,16 +71,31 @@
                     <div class="research-text">
                         <strong>DSP & Music Production: </strong>
                         Digital signal processing, sound design, DIY Synthesizers and electronic music composition.<br>
-                        <i><strong>Tools:</strong> Tenacity, Ardour, DIY Modular Synths</i> 
+                        <i><strong>Tools:</strong> Tenacity, Ardour, DIY Modular Synths</i>
                     </div>
-                    <div class="research-ascii" style="font-size: 13px;">(O) (1) (1) (O) (1)
- |   |  ===  |   |  
-===  |   |   |  ===
- |  ===  |  ===  |</div>
+                    <div class="research-ascii" style="font-size: 13px;">(O) (O) (O)
+ |   |  ===
+===  |   |
+ |  ===  |</div>
                 </div>
             </li>
-
-	     <li>
+            
+            <li>
+                <div class="research-item">
+                    <div class="research-text">
+                        <strong>Interactive Visuals: </strong>
+                        Generative coding, audio-reactive systems, and real-time graphics.<br>
+                        <i><strong>Tools:</strong> openFramework, OpenCV, Hydra Synth</i>
+                    </div>
+                    <div class="research-ascii" style="font-size: 13px;">_             ___
+ `--..___..-''  |`.
+                |  `,
+                |,.\
+                   \' SSt</div>
+                </div>
+            </li>
+            
+            <li>
                 <div class="research-item">
                     <div class="research-text">
                         <strong>Photography & Cinematography: </strong><br>
@@ -102,24 +108,9 @@
 |LI  //# \\    |
 |    \\__//    |
 |     '--'     |
-'--------------'</div></div>
-            </li>
-
-            <li>
-                <div class="research-item">
-                    <div class="research-text">
-                        <strong>Interactive Visuals: </strong>
-                        Generative coding, audio-reactive systems, and real-time graphics.<br> 
-                        <i><strong>Tools:</strong> openFramework, OpenCV, Hydra Synth</i>
-                    </div>
-                    <div class="research-ascii" style="font-size: 13px;">_             ___
- `--..___..-''  |`.
-                |  `,
-                |,.\
-                   \' </div>
+'--------------'</div>
                 </div>
             </li>
-            
             
             <li>
                 <div class="research-item">
@@ -128,17 +119,10 @@
                         Parametric modeling with OpenSCAD and digital fabrication of physical art pieces.<br>
                         <i><strong>Tools:</strong> openSCAD, BambuLab A1</i>
                     </div>
-			<div class="research-ascii" style="font-size: 13px;">      _||_
-       \/
-    .------.
-   /========\
-   |========|
-================</div>
                 </div>
             </li>
         </ul>
-    </div>
-    
+    </div>   
     <!--
     <span class="section-title"># Project Experience</span>
     <div class="content-block">

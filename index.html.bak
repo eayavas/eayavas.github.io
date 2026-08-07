@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="efe, arda, yavaş, yavas, eayavas, cv, personal">
+    <meta name="author" content="Efe Arda Yavaş" />
+    
+    <title>eayavas</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="canonical" href="http://eayavas.tr/" />
+
+    <meta property="og:title" content="Efe Arda Yavaş" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://essociete.org/" />
+    <meta property="og:site_name" content="eayavas.tr" />
+
+    <link rel="me" href="https://mstdn.social/@eayavas" />
+</head>
+<body>
+
+<main>
+    <header>
+        <h2>eayavas.tr</h2>
+        <i>art chaser, photo hunter, and his neighbor's favorite musician</i>
+        
+        <div class="nav-links">
+            <span class="nav-item">[ <a href="index.html">Home</a> ]</span>
+            <span class="nav-item">[ <a href="public/blog/index.html">Blog</a> ]</span>
+            <span class="nav-item">[ <a href="photos.html">Photos</a> ]</span>
+            <span class="nav-item">[ <a href="contact.html">Contact</a> ]</span>
+        </div>
+        
+    </header>
+
+    <hr class="light">
+
+    <span class="section-title"># who am i?</span>
+    <div class="content-block">
+        <p>&emsp;&emsp;I am a multidisciplinary researcher and creative technologist. While my academic roots are in computer engineering, my primary focus has shifted toward new media arts, algorithmic audiovisuals, and interactive installations.</p>
+        <p>&emsp;&emsp;I am also a dedicated advocate for free and open-source software, digital privacy, and hacker ethics. To support these principles, I prioritize decentralized platforms like the Fediverse over centralized networks and actively self-host my media and working environments. I believe that true creative expression requires a strong foundation in digital rights and privacy-respecting technologies.</p>
+    </div>
+
+    <hr class="light">
+
+    <span class="section-title"># research & practise</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>Livecoding: </strong>
+                Algorithmic music performance and real-time audio synthesis.<br>
+                <i><strong>Tools:</strong> Supercollider, FoxDot, TidalCycles, Strudel</i><br>
+		<div style="width: max-content; margin: 0 auto; font-family: monospace; font-size: 11px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;____<br>&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____|<br>&nbsp;___|/________|\____________|____|_______<br>|__/|/_)_|____|_______|\__(_)__(_)_______|<br>|_(_|_/__|__(_)_______|\_________________|<br>|___|____|__________(_)__________________|<br>|________|_________________________(_)___|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</div>
+            </li>
+            <li>
+                <strong>DSP & Music Production: </strong>
+		Digital signal processing, sound design, DIY Synthesizers and electronic music composition.<br>
+		<i><strong>Tools:</strong> Tenacity, Ardour, DIY Modular Synths</i><br><br>
+		<div style="width: max-content; margin: 0 auto; font-family: monospace; text-align: left;">
+			(O)&nbsp;(O)&nbsp;(O)<br>
+			&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;===<br>
+			===&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|<br>
+			&nbsp;|&nbsp;&nbsp;===&nbsp;&nbsp;|
+		</div>
+		<br>	
+	    </li>
+            <li>
+                <strong>Interactive Visuals: </strong>
+                Generative coding, audio-reactive systems, and real-time graphics.<br>
+                <i><strong>Tools:</strong> openFramework, OpenCV, Hydra Synth</i>
+		<div style="width: max-content; margin: 0 auto; font-family: monospace; text-align: left;">_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___<br>&nbsp;`--..___..-''&nbsp;&nbsp;|`.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;`,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|,.\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\'&nbsp;SSt</div>
+            </li>
+            <li>
+		<strong>Photography & Cinematography: </strong><br>
+		Mostly street photography and visual documentation. Check out <a href="photos.html">Photos Page</a><br>
+		<i><strong>Tools:</strong> Gimp, Darktable, Fujifilm XT30, Samsung NX300</i>
+		<div style="width: max-content; margin: 0 auto; font-family: monospace; font-size: 13px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;____<br>&nbsp;_[]_/____\__n_<br>|_____.--.__()_|<br>|LI&nbsp;&nbsp;//#&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;|<br>|&nbsp;&nbsp;&nbsp;&nbsp;\\__//&nbsp;&nbsp;&nbsp;&nbsp;|<br>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'--'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>'--------------'</div>
+            </li>
+            <li>
+                <strong>3D Printed Artworks: </strong>
+		Parametric modeling with OpenSCAD and digital fabrication of physical art pieces.<br>
+                <i><strong>Tools:</strong>  openSCAD, BambuLab A1</i>
+            </li>
+        </ul>
+    </div>
+    
+    <!--
+    <span class="section-title"># Project Experience</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>Günaltay Rocket Team (Teknofest 2025)</strong><br>
+                Joined the avionics team for the High Altitude Rocket category. Contributed to ground control station (GCS) communications and real-time 3D visualization of the rocket's trajectory.<br>
+                <i>Techs: C++, Qt, OpenGL, LoRA/RF Modules, Serial Com, Telemetry</i>
+            </li>
+            <br>
+            <li>
+                <strong>Ripples UAV Team (Teknofest 2024)</strong><br>
+                Co-founded the team and worked on avionics. Developed GCS modules and image processing components. Gained significant theoretical expertise on UAV dynamics through comprehensive research.<br>
+                <i>Techs: C/C++, Linux, OpenCV, IoT Protocols, RF Systems</i>
+            </li>
+        </ul>
+    </div>
+    -->
+    
+    <hr class="light">
+
+<!-- 
+    <span class="section-title"># Education</span>
+    <div class="content-block">
+        <ul>
+            <li>
+                <strong>B.Sc. in Computer Engineering</strong><br>
+                Eskişehir Osmangazi University<br>
+                <i>2022 - Present</i><br>
+                <small>Focus: System Programming, Embedded Systems, Computer Networks, Security</small>
+            </li>
+        </ul>
+    </div>
+
+    <hr class="light">
+--> 
+    <footer>
+        EOF (End of File) <br>
+        Last Update: November 29, 2025
+    </footer>
+    
+
+</main>
+
+</body>
+</html>
