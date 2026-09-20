@@ -52,32 +52,37 @@
 </div>
 
 <script>
-  const gallery = document.getElementById("gallery");
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("expandedImg");
-  const closeBtn = document.querySelector(".close-btn");
+const gallery = document.getElementById("gallery");
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("expandedImg");
+const closeBtn = document.querySelector(".close-btn");
 
-  const githubRepo = "eayavas/eayavas.github.io"; 
-  const folderPath = "img";
-  const apiUrl = `https://api.github.com/repos/${githubRepo}/contents/${folderPath}`;
+const githubRepo = "eayavas/eayavas.github.io";
+const folderPath = "img";
+const apiUrl = `https://api.github.com/repos/${githubRepo}/contents/${folderPath}`;
 
-  fetch(apiUrl)
+fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         const imagesList = data
             .filter(file => file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
             .map(file => file.download_url);
 
-        imagesList.forEach(imgUrl => {
+        imagesList.forEach(originalUrl => {
             const div = document.createElement("div");
             div.className = "masonry-item";
             
+            // CDN kullanarak genişliği 500px'e düşürülmüş, WebP formatında thumbnail oluşturuyoruz
+            const thumbnailUrl = `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=500&output=webp&we`;
+
             const img = document.createElement("img");
-            img.src = imgUrl;
+            img.src = thumbnailUrl;      // Ekrana hafif versiyonu bas
+            img.loading = "lazy";        // Sadece ekranda görünürken yükle (ÇOK ÖNEMLİ)
+            img.alt = "eayavas photography";
             
             img.onclick = function() {
                 modal.style.display = "block";
-                modalImg.src = this.src;
+                modalImg.src = originalUrl; // Tıklayınca orijinal devasa kaliteyi yükle
             };
             
             div.appendChild(img);
@@ -86,10 +91,10 @@
     })
     .catch(error => console.error("Error fetching images:", error));
 
-    closeBtn.onclick = () => modal.style.display = "none";
-    modal.onclick = (e) => { 
-       if (e.target !== modalImg) modal.style.display = "none"; 
-    };
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = (e) => { 
+    if (e.target !== modalImg) modal.style.display = "none"; 
+};
 </script>
 
 </body>
