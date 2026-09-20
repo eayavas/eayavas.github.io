@@ -68,21 +68,22 @@ fetch(apiUrl)
             .filter(file => file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
             .map(file => file.download_url);
 
+	gallery.innerHTML = "";
+	
         imagesList.forEach(originalUrl => {
             const div = document.createElement("div");
             div.className = "masonry-item";
             
-            // CDN kullanarak genişliği 500px'e düşürülmüş, WebP formatında thumbnail oluşturuyoruz
             const thumbnailUrl = `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=500&output=webp&we`;
 
             const img = document.createElement("img");
-            img.src = thumbnailUrl;      // Ekrana hafif versiyonu bas
-            img.loading = "lazy";        // Sadece ekranda görünürken yükle (ÇOK ÖNEMLİ)
+            img.src = thumbnailUrl;
+            img.loading = "lazy";
             img.alt = "eayavas photography";
             
             img.onclick = function() {
                 modal.style.display = "block";
-                modalImg.src = originalUrl; // Tıklayınca orijinal devasa kaliteyi yükle
+                modalImg.src = originalUrl;
             };
             
             div.appendChild(img);
